@@ -1,0 +1,82 @@
+/* =====================================
+   CONFIGURAÇÃO GERAL DA PÁGINA
+   ===================================== */
+
+body {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-family: Arial;
+    line-height: 1.6;
+}
+
+
+/* Mantém a fonte Arial também nos campos */
+input,
+textarea,
+select {
+    font-family: Arial;
+}
+
+
+/* =====================================
+   TABELAS
+   ===================================== */
+
+table {
+    font-size: 0.75em;
+}
+
+
+/* Células da tabela */
+td {
+    padding: 20px;
+    vertical-align: top;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+
+/* Cabeçalho da tabela */
+th {
+    background-color: rgb(220, 220, 220);
+    border-bottom: 3px solid #555;
+}
+
+
+/* Destaca a linha quando o mouse passa */
+table tbody tr:hover {
+    background-color: rgb(180, 180, 180);
+}
+
+
+/* Borda inferior da última linha */
+table tbody tr:last-of-type td {
+    border-bottom: 1px solid #555;
+}
+
+
+/* =====================================
+   CAMPOS DO FORMULÁRIO
+   ===================================== */
+
+input,
+textarea,
+select {
+    font-size: 0.85em;
+    padding: 5px;
+    border: 1px solid #555;
+}
+
+
+/* Destaca o campo que está sendo preenchido */
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    background-color: rgba(200, 0, 0, 0.295);
+}
+
+
+/* Labels em negrito */
+label {
+    font-weight: bold;
+}

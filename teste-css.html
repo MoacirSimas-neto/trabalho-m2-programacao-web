@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Teste do Tema CSS</title>
+
+    <!-- Importa somente o arquivo CSS -->
+    <link rel="stylesheet" type="text/css" href="tema.css" />
+
+</head>
+
+<body>
+
+    <h1>Teste do Tema CSS</h1>
+
+    <p>
+        Esta página foi criada para testar os estilos definidos no arquivo tema.css.
+    </p>
+
+
+    <!-- TESTE DE TEXTOS -->
+
+    <h2>Teste de textos</h2>
+
+    <div>
+        Este texto está dentro de uma div para testar a fonte e o espaçamento entre as linhas.
+    </div>
+
+    <span>
+        Este texto está dentro de um span.
+    </span>
+
+
+    <!-- TESTE DOS CAMPOS -->
+
+    <h2>Teste de campos</h2>
+
+    <label for="campoNome">Nome:</label>
+    <br>
+
+    <input
+        type="text"
+        id="campoNome"
+    />
+
+    <br><br>
+
+
+    <label for="campoDescricao">Descrição:</label>
+    <br>
+
+    <textarea
+        id="campoDescricao"
+        rows="4"
+        cols="50"
+    ></textarea>
+
+    <br><br>
+
+
+    <label for="campoTipo">Tipo:</label>
+    <br>
+
+    <select id="campoTipo">
+
+        <option value="">Selecione</option>
+        <option value="1">Opção 1</option>
+        <option value="2">Opção 2</option>
+
+    </select>
+
+
+    <!-- TESTE DA TABELA -->
+
+    <h2>Teste da tabela</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Categoria</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>Primeiro item</td>
+
+                <td>
+                    Este é um texto maior utilizado para testar o alinhamento
+                    e a quebra automática do conteúdo dentro da célula.
+                </td>
+
+                <td>Categoria A</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Segundo item</td>
+
+                <td>
+                    Outra linha da tabela para testar o efeito da pseudo-classe
+                    quando o usuário posicionar o mouse sobre a linha.
+                </td>
+
+                <td>Categoria B</td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Último item</td>
+
+                <td>
+                    Esta é a última linha da tabela e deve possuir uma borda
+                    inferior conforme definido no tema CSS.
+                </td>
+
+                <td>Categoria C</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>
