@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Cadastro de Obras</title>
+
+    <!-- Arquivo CSS do trabalho -->
+    <link rel="stylesheet" type="text/css" href="tema.css" />
+
+    <!-- Arquivo JavaScript -->
+    <script src="script.js"></script>
+
+</head>
+
+<body>
+
+    <h1>Cadastro de Obras de Museu</h1>
+
+
+    <!-- FORMULÁRIO DE CADASTRO -->
+    <form id="formObra">
+
+        <label for="nomeObra">Nome da obra:</label>
+        <br>
+
+        <input
+            type="text"
+            name="nomeObra"
+            id="nomeObra"
+            maxlength="100"
+        />
+
+        <br><br>
+
+
+        <label for="autor">Autor:</label>
+        <br>
+
+        <input
+            type="text"
+            name="autor"
+            id="autor"
+            maxlength="100"
+        />
+
+        <br><br>
+
+
+        <label for="ano">Ano da obra:</label>
+        <br>
+
+        <input
+            type="text"
+            name="ano"
+            id="ano"
+            maxlength="4"
+        />
+
+        <br><br>
+
+
+        <label for="periodo">Período da obra:</label>
+        <br>
+
+        <select
+            name="periodo"
+            id="periodo"
+        >
+
+            <option value=""></option>
+            <option value="d.C">d.C</option>
+            <option value="a.C">a.C</option>
+
+        </select>
+
+        <br><br>
+
+
+        <label for="tipo">Tipo:</label>
+        <br>
+
+        <select
+            name="tipo"
+            id="tipo"
+        >
+
+            <option value=""></option>
+            <option value="Quadro">Quadro</option>
+            <option value="Escultura">Escultura</option>
+            <option value="Outro">Outro</option>
+
+        </select>
+
+        <br><br>
+
+
+        <label for="detalhamento">Detalhamento:</label>
+        <br>
+
+        <textarea
+            name="detalhamento"
+            id="detalhamento"
+            rows="5"
+            cols="50"
+            maxlength="2000"
+        ></textarea>
+
+        <br><br>
+
+
+        <!-- Chama a função de validação -->
+        <input
+            type="button"
+            value="Registrar"
+            onclick="validarFormulario()"
+        />
+
+    </form>
+
+
+    <!-- MENSAGENS DE ERRO -->
+    <h2>Erros de validação</h2>
+
+    <ul id="listaErros">
+    </ul>
+
+
+    <!-- TABELA DE OBRAS -->
+    <h2>Obras cadastradas</h2>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Nome da obra</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Período</th>
+                <th>Tipo</th>
+                <th>Excluir</th>
+
+            </tr>
+
+        </thead>
+
+        <!-- As linhas serão adicionadas pelo JavaScript -->
+        <tbody id="corpoTabela">
+        </tbody>
+
+    </table>
+
+
+    <!-- DETALHAMENTO DA OBRA -->
+    <h2>Detalhamento da obra</h2>
+
+    <div id="detalhesObra">
+    </div>
+
+</body>
+
+</html>
