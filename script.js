@@ -1,7 +1,4 @@
-// =====================================
-// VALIDAÇÃO DO FORMULÁRIO
-// =====================================
-
+// Valida os campos e registra a obra se não houver erros.
 function validarFormulario(){
 
     let nomeObra = document.getElementById("nomeObra");
@@ -13,18 +10,12 @@ function validarFormulario(){
 
     let listaErros = document.getElementById("listaErros");
 
+    let valorPeriodo = periodo.options[periodo.selectedIndex].value;
+    let valorTipo = tipo.options[tipo.selectedIndex].value;
+
     let validado = true;
 
-
-    // Pega o valor selecionado nos campos select
-    let indicePeriodo = periodo.selectedIndex;
-    let valorPeriodo = periodo.options[indicePeriodo].value;
-
-    let indiceTipo = tipo.selectedIndex;
-    let valorTipo = tipo.options[indiceTipo].value;
-
-
-    // Limpa os erros da validação anterior
+    // Limpa as mensagens e bordas da tentativa anterior.
     listaErros.innerHTML = "";
 
     nomeObra.style.border = "";
@@ -33,65 +24,37 @@ function validarFormulario(){
     periodo.style.border = "";
     tipo.style.border = "";
 
-
-    // Nome da obra
     if(nomeObra.value.length < 6){
-
         adicionarErro("O nome da obra deve possuir no mínimo 6 caracteres.");
-
         nomeObra.style.border = "1px solid red";
-
         validado = false;
     }
 
-
-    // Autor
     if(autor.value.length < 10){
-
         adicionarErro("O nome do autor deve possuir no mínimo 10 caracteres.");
-
         autor.style.border = "1px solid red";
-
         validado = false;
     }
 
-
-    // Ano
     if(ano.value == "" || isNaN(ano.value)){
-
         adicionarErro("O ano da obra deve ser um número válido.");
-
         ano.style.border = "1px solid red";
-
         validado = false;
     }
 
-
-    // Período
     if(valorPeriodo == ""){
-
         adicionarErro("Selecione um período válido.");
-
         periodo.style.border = "1px solid red";
-
         validado = false;
     }
 
-
-    // Tipo
     if(valorTipo == ""){
-
         adicionarErro("Selecione um tipo válido.");
-
         tipo.style.border = "1px solid red";
-
         validado = false;
     }
 
-
-    // Se não houver nenhum erro, registra a obra
-    if(validado == true){
-
+    if(validado){
         registrarObra(
             nomeObra.value,
             autor.value,
@@ -103,120 +66,91 @@ function validarFormulario(){
 
         limparFormulario();
     }
-
 }
 
 
-// =====================================
-// ADICIONA UM ERRO NA LISTA
-// =====================================
-
+// Adiciona uma mensagem à lista de erros.
 function adicionarErro(mensagem){
 
     let listaErros = document.getElementById("listaErros");
 
     let li = document.createElement("li");
-
     let texto = document.createTextNode(mensagem);
 
     li.appendChild(texto);
-
     listaErros.appendChild(li);
-
 }
 
 
-// =====================================
-// REGISTRA UMA OBRA NA TABELA
-// =====================================
-
+// Cria a linha da obra, suas células e seus eventos.
 function registrarObra(nome, autor, ano, periodo, tipo, detalhamento){
 
-    let table = document.getElementById("corpoTabela");
+    let corpoTabela = document.getElementById("corpoTabela");
 
-    // Cria uma nova linha
     let tr = document.createElement("tr");
 
-
-    // Nome da obra
+    // Nome da obra.
     let td = document.createElement("td");
-    let txt = document.createTextNode(nome);
+    let texto = document.createTextNode(nome);
 
-    td.appendChild(txt);
+    td.appendChild(texto);
     tr.appendChild(td);
 
-
-    // Autor
+    // Autor.
     td = document.createElement("td");
-    txt = document.createTextNode(autor);
+    texto = document.createTextNode(autor);
 
-    td.appendChild(txt);
+    td.appendChild(texto);
     tr.appendChild(td);
 
-
-    // Ano
+    // Ano.
     td = document.createElement("td");
-    txt = document.createTextNode(ano);
+    texto = document.createTextNode(ano);
 
-    td.appendChild(txt);
+    td.appendChild(texto);
     tr.appendChild(td);
 
-
-    // Período
+    // Período.
     td = document.createElement("td");
-    txt = document.createTextNode(periodo);
+    texto = document.createTextNode(periodo);
 
-    td.appendChild(txt);
+    td.appendChild(texto);
     tr.appendChild(td);
 
-
-    // Tipo
+    // Tipo.
     td = document.createElement("td");
-    txt = document.createTextNode(tipo);
+    texto = document.createTextNode(tipo);
 
-    td.appendChild(txt);
+    td.appendChild(texto);
     tr.appendChild(td);
 
-
-    // Botão excluir
+    // Botão de exclusão.
     td = document.createElement("td");
 
-    let button = document.createElement("input");
+    let botao = document.createElement("input");
 
-    button.type = "button";
-    button.value = "Excluir";
-    button.onclick = excluirObra;
+    botao.type = "button";
+    botao.value = "Excluir";
+    botao.onclick = excluirObra;
 
-    td.appendChild(button);
+    td.appendChild(botao);
     tr.appendChild(td);
 
-
-    // Ao clicar na linha mostra o detalhamento
+    // Exibe o detalhamento ao clicar na linha.
     tr.onclick = function(){
-
         document.getElementById("detalhesObra").innerHTML = detalhamento;
-
     };
 
-
-    // Adiciona a linha na tabela
-    table.appendChild(tr);
-
+    corpoTabela.appendChild(tr);
 }
 
 
-// =====================================
-// EXCLUI UMA OBRA
-// =====================================
-
+// Solicita confirmação e exclui a linha do botão clicado.
 function excluirObra(){
 
-    let confirmar = window.confirm(
-        "Deseja realmente excluir esta obra?"
-    );
+    let confirmar = window.confirm("Deseja realmente excluir esta obra?");
 
-    if(confirmar == true){
-
+    if(confirmar){
         let td = this.parentElement;
         let tr = td.parentElement;
         let index = tr.rowIndex;
@@ -224,16 +158,11 @@ function excluirObra(){
         let table = tBody.parentElement;
 
         table.deleteRow(index);
-
     }
-
 }
 
 
-// =====================================
-// LIMPA O FORMULÁRIO
-// =====================================
-
+// Limpa os campos após o cadastro.
 function limparFormulario(){
 
     document.getElementById("nomeObra").value = "";
@@ -244,5 +173,4 @@ function limparFormulario(){
     document.getElementById("tipo").selectedIndex = 0;
 
     document.getElementById("detalhamento").value = "";
-
 }
